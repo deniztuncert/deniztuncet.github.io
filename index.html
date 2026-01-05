@@ -1,62 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Deniz Tuncer Tepe | Medical Student & Researcher</title>
-    <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; display: flex; color: #333; }
-        /* Sol Menü - Beren Hoca stili */
-        nav { width: 250px; height: 100vh; background: #f8f9fa; padding: 40px 20px; position: fixed; border-right: 1px solid #eee; }
-        nav h2 { font-size: 1.4em; margin-bottom: 5px; }
-        nav p { font-size: 0.9em; color: #666; margin-bottom: 30px; }
-        nav a { display: block; padding: 10px 0; color: #444; text-decoration: none; font-weight: 500; border-bottom: 1px solid #eee; }
-        nav a:hover { color: #007bff; }
-        
-        /* Sağ İçerik */
-        main { margin-left: 290px; padding: 60px; max-width: 800px; }
-        .profile-img { width: 150px; border-radius: 50%; margin-bottom: 20px; }
-        section { margin-bottom: 50px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .tag { background: #eee; padding: 3px 8px; border-radius: 3px; font-size: 0.8em; margin-right: 5px; }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deniz Tuncer Tepe | Neuroscience & Neurotechnology</title>
+  <meta name="description" content="Deniz Tuncer Tepe — medical student working on neuroscience, EEG, biosignal analysis, and biomedical AI. Projects, CV, and links." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#101826;
+      --text:#eaf2ff;
+      --muted:#b6c2d9;
+      --accent:#6aa8ff;
+      --border:rgba(255,255,255,0.10);
+      --chip:rgba(106,168,255,0.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 700px at 10% 0%, rgba(106,168,255,0.20), transparent 55%),
+                  radial-gradient(900px 650px at 90% 10%, rgba(120,255,214,0.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px; margin:0 auto; padding:36px 18px 64px}
+    header{
+      display:flex; gap:18px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+      padding:22px; background:rgba(16,24,38,0.65); border:1px solid var(--border); border-radius:16px;
+      backdrop-filter: blur(8px);
+    }
+    .title h1{margin:0 0 6px; font-size:28px; letter-spacing:0.2px}
+    .title p{margin:0; color:var(--muted)}
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+    .badge{
+      font-size:12px; color:var(--text); background:var(--chip); border:1px solid var(--border);
+      padding:6px 10px; border-radius:999px;
+    }
+    .links{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--border); background:rgba(255,255,255,0.04);
+      color:var(--text);
+      font-size:14px;
+    }
+    .btn:hover{background:rgba(255,255,255,0.08); text-decoration:none}
+    section{margin-top:18px}
+    .grid{
+      display:grid; grid-template-columns: 1fr; gap:14px;
+    }
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1.2fr 0.8fr;}
+    }
+    .card{
+      padding:18px; background:rgba(16,24,38,0.55); border:1px solid var(--border);
+      border-radius:16px; backdrop-filter: blur(8px);
+    }
+    .card h2{margin:0 0 10px; font-size:18px}
+    .card p{margin:0 0 10px; color:var(--muted)}
+    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .proj{display:flex; flex-direction:column; gap:10px}
+    .proj-item{
+      padding:14px; border-radius:14px; border:1px solid var(--border);
+      background:rgba(255,255,255,0.03);
+    }
+    .proj-item h3{margin:0 0 6px; font-size:16px}
+    .meta{font-size:13px; color:var(--muted); margin:0 0 8px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+    .tag{
+      font-size:12px; color:var(--text); background:rgba(255,255,255,0.05);
+      border:1px solid var(--border); padding:4px 8px; border-radius:999px;
+    }
+    footer{margin-top:18px; color:var(--muted); font-size:13px; text-align:center}
+    .small{font-size:13px; color:var(--muted)}
+    code{background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:8px; border:1px solid var(--border)}
+  </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Deniz Tuncer Tepe</h1>
+        <p>First-year medical student (İstanbul University Faculty of Medicine) — working on neuroscience, EEG, biosignal analysis, and biomedical AI.</p>
+        <div class="badges">
+          <span class="badge">EEG & Source Localization</span>
+          <span class="badge">3D Scanning & Geometry</span>
+          <span class="badge">Signal Processing</span>
+          <span class="badge">Python • NumPy • SciPy</span>
+          <span class="badge">Neurotechnology</span>
+        </div>
+      </div>
 
-<nav>
-    <h2>Deniz Tuncer Tepe</h2>
-    <p>Istanbul University<br>Faculty of Medicine</p>
-    <a href="#about">About Me</a>
-    <a href="#research">Research & Projects</a>
-    <a href="Deniz_Tepe_CV.pdf" target="_blank" style="color: #d9534f;">📄 Curriculum Vitae (PDF)</a>
-    <a href="https://github.com/deniztuncert">GitHub</a>
-    <a href="https://linkedin.com">LinkedIn</a>
-</nav>
+      <div class="links">
+        <!-- Replace these with your real links -->
+        <a class="btn" href="https://github.com/deniztuncert" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn" href="https://github.com/deniztuncert/automated-eeg-localization" target="_blank" rel="noreferrer">AutoElec Repo</a>
+        <a class="btn" href="Curriculum_Vitae_Deniz.pdf" target="_blank" rel="noreferrer">CV(PDF)</a>
+        <a class="btn" href="mailto:deniz.tepe@ogr.iu.edu.tr">Email</a>
+      </div>
+    </header>
 
-<main>
-    <section id="about">
-        <h1>Hello, I'm Deniz.</h1>
-        <p>I am a first-year medical student at <b>Istanbul University (Capa)</b>, focused on the intersection of <b>neuroscience, engineering, and 3D technology</b>.</p>
-        <p>Currently, I am working on automated EEG analysis and establishing 3D anatomical visualization workflows within our faculty.</p>
+    <section class="grid">
+      <div class="card">
+        <h2>About</h2>
+        <p>
+          I develop practical tools at the intersection of neuroscience and engineering while strengthening my fundamentals in
+          math, programming, and neuroscience. My current focus is EEG: improving experimental workflows, electrode localization,
+          and downstream source analysis accuracy.
+        </p>
+        <p class="small">
+          I’m especially interested in projects that connect <b>biology</b> and <b>engineering</b>:
+          signal processing, computational neuroscience, and clinically useful neurotech. My goal is to develop strong methodological depth in this direction alongside my medical training.
+        </p>
+        </p>
+
+        <h2 style="margin-top:14px;">Current Priorities (2026)</h2>
+        <ul class="list">
+          <li>EEG acquisition + analysis, and robust source localization pipelines</li>
+          <li>Research output (methodology + applied projects)</li>
+          <li>Building collaborations and contributing to active labs</li>
+          <li>Contributing to the 3D Anatomy Lab (visualization and technical pipeline support)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Highlights</h2>
+        <ul class="list">
+          <li><b>AutoElec</b>: automated EEG electrode localization & labeling from 3D scans</li>
+          <li>3D Anatomy Lab (setup + visualization / technical pipeline support)</li>
+          <li>Wearable/biomedical signal analysis project (swallowing-related signals)</li>
+        </ul>
+
+        <h2 style="margin-top:14px;">Tools</h2>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">PyVista</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">EEGLAB</span>
+          <span class="tag">FieldTrip</span>
+          <span class="tag">C#</span>
+          <span class="tag">Unity</span>
+          <span class="tag">Blender</span>
+        </div>
+      </div>
     </section>
 
-    <section id="research">
-        <h2>Selected Projects</h2>
-        
-        <h3>AutoElec: Automated EEG Localization</h3>
-        <p><span class="tag">Python</span> <span class="tag">Open3D</span> <span class="tag">Neuro-IT</span></p>
-        <p>A computational tool to automate 3D electrode localization using differential geometry. Reducing manual errors in brain-mapping research.</p>
-        
-        <h3>The Precision Chassis</h3>
-        <p><span class="tag">Mechanical Design</span> <span class="tag">3D Printing</span></p>
-        <p>High-precision mechanical housing for EEG acquisition hardware, designed with internal rail systems for PCB stability.</p>
+    <section class="card">
+      <h2>Projects</h2>
+
+      <div class="proj">
+        <div class="proj-item">
+          <h3>AutoElec — Automated EEG Electrode Localization (3D Scan → Electrode Coordinates)</h3>
+          <p class="meta">
+            Status: <b>Released / v1</b> • Methodology tool • <code>3D mesh</code> → <code>electrode centers</code> → <code>labels</code>
+          </p>
+          <p>
+            A pipeline that aligns a scanned head mesh using fiducials (e.g., Nz/LPA/RPA/Cz/Oz),
+            extracts electrode candidates using surface curvature, clusters electrodes (DBSCAN),
+            and labels electrodes by warping a 10–20 template to the scan.
+          </p>
+          <p class="small">
+            Repo: <a href="https://github.com/deniztuncert/automated-eeg-localization" target="_blank" rel="noreferrer">
+              github.com/deniztuncert/automated-eeg-localization
+            </a>
+          </p>
+          <div class="tags">
+            <span class="tag">3D Geometry</span>
+            <span class="tag">Curvature</span>
+            <span class="tag">DBSCAN</span>
+            <span class="tag">Template Warping</span>
+            <span class="tag">EEG</span>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <h3>MRI-independent electrode localization for improved head modeling (ongoing)</h3>
+          <p class="meta">Status: <b>Planning/Integration</b> • Goal: improve BEM head model accuracy for source localization</p>
+          <p>
+            Integrating 3D-scan-based electrode localization into an EEG source localization workflow,
+            aiming to reduce localization error and improve reproducibility in lab settings.
+          </p>
+          <div class="tags">
+            <span class="tag">BEM</span>
+            <span class="tag">Source Localization</span>
+            <span class="tag">Pipeline</span>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <h3>Wearable/biosignal analysis for swallowing-related physiology (ongoing)</h3>
+          <p class="meta">Status: <b>Ongoing</b> • Data-driven analysis, signal processing + ML exploration</p>
+          <p>
+            Working on non-invasive analysis of physiological signals related to swallowing function,
+            focusing on signal exploration, preprocessing, and preliminary modeling.
+          </p>
+          <div class="tags">
+            <span class="tag">Signal Processing</span>
+            <span class="tag">ML</span>
+            <span class="tag">Biomedical</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you're interested in my work or potential collaborations, feel free to reach out.</p>
-        <p>Email: <b>deniz.tepe@example.com</b></p>
+    <section class="card">
+      <h2>Contact</h2>
+      <p class="small">
+        Email: <a href="mailto:deniz.tepe@ogr.iu.edu.tr">deniz.tepe@ogr.iu.edu.tr</a><br/>
+        CV (PDF): <a href="Curriculum_Vitae_Deniz.pdf" target="_blank" rel="noreferrer">link</a><br/>
+        GitHub: <a href="https://github.com/deniztuncert" target="_blank" rel="noreferrer">github.com/deniztuncert</a>
+      </p>
+      <p class="small">
+        If you’re a lab PI / researcher and you think I could contribute as a student intern or research assistant,
+        feel free to reach out.
+      </p>
     </section>
-</main>
 
+    <footer>
+      ©️ <span id="year"></span> Deniz Tuncer Tepe • Built with plain HTML/CSS (GitHub Pages)
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
